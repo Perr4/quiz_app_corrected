@@ -29,7 +29,7 @@ class _QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Quiz App',
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 0, 0, 0)),
       ),
@@ -41,6 +41,7 @@ class _QuizState extends State<Quiz> {
           child: activeScreen,
         ),
       ),
+      themeMode: ThemeMode.system,
     );
   }
 }
