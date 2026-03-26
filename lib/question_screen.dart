@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_corrected/widget/answer_button.dart';
+import 'package:quiz_app_corrected/data/question_data.dart';
 
+//Widget con la Schermata delle Domade
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
 
@@ -10,6 +13,8 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionState extends State<QuestionScreen> {
+  final currentQuestion = Question[0];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,24 +23,14 @@ class _QuestionState extends State<QuestionScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text("question"),
+            Text(currentQuestion.text),
             const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("1 question"),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("2 question"),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("3 question"),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("4 question"),
-            ),
+            AnswerButton(currentQuestion.answers[0], () {
+              print(currentQuestion.answers[0]);
+            }),
+            AnswerButton(currentQuestion.answers[1], () {}),
+            AnswerButton(currentQuestion.answers[2], () {}),
+            AnswerButton(currentQuestion.answers[3], () {}),
           ],
         ),
       ),
