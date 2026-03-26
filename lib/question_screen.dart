@@ -19,18 +19,17 @@ class _QuestionState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Center(
+      child: Container(
+        margin: const EdgeInsets.all(50),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(currentQuestion.text),
+            Text(currentQuestion.text,textAlign: TextAlign.center),
             const SizedBox(height: 30),
-            AnswerButton(currentQuestion.answers[0], () {
-              print(currentQuestion.answers[0]);
-            }),
-            AnswerButton(currentQuestion.answers[1], () {}),
-            AnswerButton(currentQuestion.answers[2], () {}),
-            AnswerButton(currentQuestion.answers[3], () {}),
+            ...currentQuestion.getShuffleAnswer().map((item){
+              return AnswerButton(item,(){});
+              })
           ],
         ),
       ),
