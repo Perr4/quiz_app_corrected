@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app_corrected/quiz.dart';
 import 'package:quiz_app_corrected/widget/answer_button.dart';
 import 'package:quiz_app_corrected/data/question_data.dart';
 
 //Widget con la Schermata delle Domade
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen(this.chooseAnswer, {super.key});
+
+  final Function(String answer) chooseAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -15,16 +18,17 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionState extends State<QuestionScreen> {
   var currentQuestionIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     var currentQuestion = Question[currentQuestionIndex];
 
-    void answerQuestion() {
-      if (Question[currentQuestionIndex + 1].text.isNotEmpty) {
-        setState(() {
+    void answerQuestion(String selctedAnswer) {
+      widget.chooseAnswer(selctedAnswer);
+         setState(() {
           currentQuestionIndex++;
         });
-      }
+      
     }
 
     return SizedBox(
@@ -46,7 +50,10 @@ class _QuestionState extends State<QuestionScreen> {
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffleAnswer().map((item) {
-              return AnswerButton(item, answerQuestion);
+              return AnswerButton(item, (){
+                answerQuestion(item);
+                
+              });
             }),
           ],
         ),

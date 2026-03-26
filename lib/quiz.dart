@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_corrected/data/question_data.dart';
 import 'package:quiz_app_corrected/question_screen.dart';
+import 'package:quiz_app_corrected/result_screen.dart';
 import 'package:quiz_app_corrected/start_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -13,17 +15,28 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   Widget? activeScreen;
+  List<String> selctedAnswer = [];
 
-  @override
+  @override 
   void initState() {
     activeScreen = StartScreen(switchState);
     super.initState();
   }
 
-  void switchState() {
+  void chooseAnswer(String answer) {
+    selctedAnswer.add(answer);
+    if(selctedAnswer.length == Question.length){
+      setState(() {
+        activeScreen = ResultScreen(selctedAnswer);
+      });
+    }
+  }
+
+  List<String> switchState() {
     setState(() {
-      activeScreen = QuestionScreen();
+      activeScreen = QuestionScreen(chooseAnswer);
     });
+    return selctedAnswer;
   }
 
   @override
@@ -36,11 +49,12 @@ class _QuizState extends State<Quiz> {
       home: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(colors:
-             [
-              const Color.fromARGB(255, 70, 0, 70),
-              const Color.fromARGB(255, 109, 63, 128)
-              ]),
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 70, 0, 70),
+                const Color.fromARGB(255, 109, 63, 128),
+              ],
+            ),
           ),
           child: activeScreen,
         ),
