@@ -14,17 +14,31 @@ class _QuestionState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Center(child: 
-        Column(mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text("question"),
-          const SizedBox(height: 30),
-          ElevatedButton(onPressed: () {}, child: const Text("First question")),
-          ElevatedButton(onPressed: () {}, child: const Text("Second question")),
-          ElevatedButton(onPressed: () {}, child: const Text("third question")),
-          ElevatedButton(onPressed: () {}, child: const Text("Four question")),
-        ],
-      )),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text("question"),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("1 question"),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("2 question"),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("3 question"),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("4 question"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
