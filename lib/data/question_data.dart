@@ -19,10 +19,35 @@ const Question = [
     "America del Sud",
     "Australia",
   ]),
-  QuizQuestion("Qual è l'elemento chimico rappresentato dal simbolo 'O'", [
-    "Ossigeno",
-    "Oro",
-    "Elio",
-    "Carbonio",
+  QuizQuestion("Qual è l'oceano più grande della Terra?", [
+    "Oceano Pacifico",
+    "Oceano Atlantico",
+    "Oceano Indiano",
+    "Mar Glaciale Artico",
   ]),
+   QuizQuestion("Chi ha scritto il romanzo 'I Promessi Sposi'?", [
+    "Alessandro Manzoni",
+    "Dante Alighieri",
+    "Giacomo Leopardi",
+    "Giovanni Boccaccio",
+  ]),
+   QuizQuestion("Qual è il metallo che si trova allo stato liquido a temperatura ambiente", [
+    "Mercurio",
+    "Piombo",
+    "Rame",
+    "Alluminio",
+  ]),
+   QuizQuestion("In quale città si trova la Torre Eiffel?", [
+    "Parigi",
+    "Berlino",
+    "Madrid",
+    "Roma",
+  ]),
+   QuizQuestion("Quanti sono i colori dell'arcobaleno?", [
+    "Sette",
+    "Sei",
+    "Otto",
+    "Cinques",
+  ]),
+
 ];

@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app_corrected/data/question_data.dart';
 import 'package:quiz_app_corrected/widget/question_summary.dart';
 
@@ -23,8 +25,11 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final listaFinale = getSummaryData();
-
+    final sumData =getSummaryData();
+    final numTotalQuestion = Question.length;
+    final numCorectQuestion = sumData.where((item){
+        return item['correct_answer'] == item['user_answer'];
+    }).length;
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -33,18 +38,15 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("You endedn the question"),
+            Text("You answered right $numCorectQuestion out of $numTotalQuestion",style: GoogleFonts.inter(
+                fontSize: 25,color: Colors.white
+              )),
             SizedBox(
-              height: 150,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...listaFinale.map((item) {
-                    return Text(item[0].toString());
-                  }),
-                  QuestionSummary()
-                ],
-              ),
+              height: 30,
+            ),
+           QuestionSummary(sumData),
+            SizedBox(
+              height: 30,
             ),
             TextButton.icon(
               onPressed: () {},
