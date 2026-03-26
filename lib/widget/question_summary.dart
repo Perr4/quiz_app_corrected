@@ -43,7 +43,7 @@ Widget itemForList({
     child: Row(
       children: [
         Container(
-          padding: EdgeInsets.all(7),
+          padding: EdgeInsets.all(12),
           decoration: BoxDecoration(color: isRight?Colors.greenAccent:Colors.redAccent, shape: BoxShape.circle),
           child: Text(index.toString(), style: TextStyle(color: Colors.white)),
         ),
@@ -70,7 +70,7 @@ Widget itemForList({
               Text(
                 correct,
                 textAlign: TextAlign.left,
-                style: GoogleFonts.inter(fontSize: 13, color: Colors.greenAccent),
+                style: GoogleFonts.inter(fontSize: 13, color: Colors.grey),
               ),
             ],
           ),

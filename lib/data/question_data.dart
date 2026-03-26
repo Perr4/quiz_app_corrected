@@ -15,7 +15,7 @@ const Question = [
   ]),
   QuizQuestion("In quale continente si trova il deserto del Sahara?", [
     "Africa",
-    "Asia",
+    "Sassari",
     "America del Sud",
     "Australia",
   ]),

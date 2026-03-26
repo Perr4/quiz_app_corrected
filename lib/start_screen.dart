@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startSQuiz, {super.key});
 
-  final void Function() startSQuiz;
+  final void Function(String) startSQuiz;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -23,7 +23,9 @@ class StartScreen extends StatelessWidget {
           ),
           TextButton.icon(
             icon: Icon(Icons.arrow_right_alt),
-            onPressed: startSQuiz,
+            onPressed: (){
+              startSQuiz("start");
+            },
             label: Text(
               "Start",
               style: GoogleFonts.inter(

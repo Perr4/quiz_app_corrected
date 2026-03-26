@@ -27,16 +27,24 @@ class _QuizState extends State<Quiz> {
     selctedAnswer.add(answer);
     if(selctedAnswer.length == Question.length){
       setState(() {
-        activeScreen = ResultScreen(selctedAnswer);
+        activeScreen = ResultScreen(restart: switchState,selctedAnswer);
       });
     }
   }
 
-  List<String> switchState() {
-    setState(() {
+  void switchState(String activescreen) {
+    if(activescreen == "result" ){
+      setState(() {
+      selctedAnswer = [];
+      activeScreen = StartScreen(switchState);
+    });
+    }else{
+      setState(() {
       activeScreen = QuestionScreen(chooseAnswer);
     });
-    return selctedAnswer;
+    }
+    
+
   }
 
   @override
